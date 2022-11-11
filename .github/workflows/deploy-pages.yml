@@ -26,8 +26,6 @@ jobs:
           path: |
             dist
             !dist/**/*.md
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
   # Deployment job
   deploy:
     environment:
