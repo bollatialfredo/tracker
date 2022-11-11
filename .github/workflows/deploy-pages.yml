@@ -5,7 +5,7 @@ on:
     branches:
       - 'releases/**'
 jobs:
-  check-bats-version:
+  intall-dependencies:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
