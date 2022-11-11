@@ -1,0 +1,77 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Denver area"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -105.55443737719791,
+              40.09393206067918
+            ],
+            [
+              -105.55443737719791,
+              39.456497234557105
+            ],
+            [
+              -104.40850539328748,
+              39.456497234557105
+            ],
+            [
+              -104.40850539328748,
+              40.09393206067918
+            ],
+            [
+              -105.55443737719791,
+              40.09393206067918
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BT001"
+      },
+      "geometry": {
+        "coordinates": [
+          -104.8412349536454,
+          39.83905133150006
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BT002"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.11369430646307,
+          39.598659399389334
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BT003"
+      },
+      "geometry": {
+        "coordinates": [
+          -104.7771268706293,
+          38.94729276882933
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+}
+.container {
+  height: 100vh;
+  margin: auto;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar-icon {
+  margin-left: -15px;
+  margin-right: 15px;
+}
+
+.ant-layout-header, .ant-layout-sider-children, .ant-layout-footer, .ant-menu{
+  background: #EEEEEE;
+}
+.ant-layout-header {
+  padding-left: 0px;
+  padding-bottom: 10px;
+}
+.ant-layout-content {
+  background: #FFF;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none;
+}

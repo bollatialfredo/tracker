@@ -1,0 +1,71 @@
+[
+  {
+    "name" : "Map",
+    "id": 10,
+    "path": "/",
+    "icon": "icon:globe"
+  },
+  {
+    "name" : "List",
+    "id": 11,
+    "path": "/list",
+    "icon": "icon:table"
+  },
+  {
+    "name" : "Setup",
+    "id": 1,
+    "path": "/",
+    "icon": "icon:settings",
+    "subItems": [
+      {
+        "name": "Sub 1",
+        "path": "/",
+        "icon": "icon:globe",
+        "id": 2
+      },
+      {
+        "name": "Sub 2",
+        "icon": "icon:globe",
+        "path": "/",
+        "id": 3
+      },
+      {
+        "name": "Sub 3",
+        "path": "/",
+        "icon": "icon:globe",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "name" : "Events",
+    "id": 6,
+    "icon": "icon:notification",
+    "subItems": [
+      {
+        "name": "Sub 1",
+        "path": "/",
+        "icon": "icon:globe",
+        "id": 7
+      },
+      {
+        "name": "Sub 2",
+        "icon": "icon:globe",
+        "path": "/",
+        "id": 8
+      },
+      {
+        "name": "Sub 3",
+        "icon": "icon:globe",
+        "path": "/",
+        "id": 9
+      }
+    ]
+  },
+  {
+    "name" : "Help",
+    "id": 5,
+    "path": "/help",
+    "icon": "icon:help"
+  }
+]
