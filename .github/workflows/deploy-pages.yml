@@ -20,13 +20,13 @@ jobs:
         run: npm install
       - name: Build app
         run: npm run build
-      - name: create dist folder
-        run: mkdir -p dist
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist-without-markdown
-          path: /dist
+          path: |
+            dist
+            !dist/**/*.md
   # Deployment job
   deploy:
     environment:
@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           name: dist-without-markdown
-          path: ./dist
+          path: ${{ github.workspace }}/artifact/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
