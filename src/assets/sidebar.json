@@ -2,36 +2,36 @@
   {
     "name" : "Map",
     "id": 10,
-    "path": "/",
+    "path": "/tracker",
     "icon": "icon:globe"
   },
   {
     "name" : "List",
     "id": 11,
-    "path": "/list",
+    "path": "/tracker/list",
     "icon": "icon:table"
   },
   {
     "name" : "Setup",
     "id": 1,
-    "path": "/",
+    "path": "/tracker",
     "icon": "icon:settings",
     "subItems": [
       {
-        "name": "Sub 1",
-        "path": "/",
+        "name": "Users",
+        "path": "/tracker/users",
         "icon": "icon:globe",
         "id": 2
       },
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/",
+        "path": "/tracker",
         "id": 3
       },
       {
         "name": "Sub 3",
-        "path": "/",
+        "path": "/tracker",
         "icon": "icon:globe",
         "id": 4
       }
@@ -44,20 +44,20 @@
     "subItems": [
       {
         "name": "Sub 1",
-        "path": "/",
+        "path": "/tracker",
         "icon": "icon:globe",
         "id": 7
       },
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/",
+        "path": "/tracker",
         "id": 8
       },
       {
         "name": "Sub 3",
         "icon": "icon:globe",
-        "path": "/",
+        "path": "/tracker",
         "id": 9
       }
     ]
@@ -65,7 +65,7 @@
   {
     "name" : "Help",
     "id": 5,
-    "path": "/help",
+    "path": "/tracker/help",
     "icon": "icon:help"
   }
 ]

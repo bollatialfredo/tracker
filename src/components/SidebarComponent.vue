@@ -8,7 +8,7 @@
             <Icon class="inline-block sidebar-icon" :icon="item.icon" height="20" width="50"/>{{ item.name }}
           </span>
         </template>
-        <a-menu-item v-for="subItem in item.subItems" :key="subItem.id" @click="navigate(item.path)">
+        <a-menu-item v-for="subItem in item.subItems" :key="subItem.id" @click="navigate(subItem.path)">
           <div v-wave-animation></div>
           {{subItem.name}}
         </a-menu-item>
@@ -52,6 +52,8 @@ export default {
       state.collapsed = !state.collapsed;
     };
     const navigate = (path?: string) => {
+      console.log(path);
+      
       if (!path) return
       setTimeout(() => {
         router.push({ path: path })      
