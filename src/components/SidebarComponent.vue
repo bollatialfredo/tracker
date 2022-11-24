@@ -1,19 +1,19 @@
 <template>
   <a-layout-sider  v-model:collapsed="collapsed" :trigger="null" collapsible>
-    <a-menu mode="inline">
-      <template v-for="item in sidebarElements" :key="item.id">
-        <a-sub-menu v-if="item.subItems && item.subItems.length" :key="item.id">
+    <a-menu mode="inline" v-model:openKeys="openKeys" v-model:selectedKeys="selectedKeys">
+      <template v-for="item in sidebarElements" >
+        <a-sub-menu v-if="item.subItems && item.subItems.length" :key="item.path">
         <template #title>
           <span class="select-none">
             <Icon class="inline-block sidebar-icon" :icon="item.icon" height="20" width="50"/>{{ item.name }}
           </span>
         </template>
-        <a-menu-item v-for="subItem in item.subItems" :key="subItem.id" @click="navigate(subItem.path)">
+        <a-menu-item v-for="subItem in item.subItems" :key="subItem.path" @click="navigate(subItem.path)">
           <div v-wave-animation></div>
           {{subItem.name}}
         </a-menu-item>
         </a-sub-menu>
-        <a-menu-item v-else :key="'sub-' + item.id" @click="navigate(item.path)">
+        <a-menu-item v-else :key="item.path" @click="navigate(item.path)">
           <span class="select-none">
             <div v-wave-animation></div>
             <Icon class="inline-block sidebar-icon" :icon="item.icon" height="20" width="50"/>{{ item.name }}
@@ -41,14 +41,20 @@ export default {
   components:{
     Icon
   },
+  // mounted() {
+  //   console.log(this.$route.fullPath);
+  // },
   setup(props, context: SetupContext) {
     const router = useRouter()
     const state = reactive({
+      selectedKeys: [],
+      openKeys: [],
       collapsed: false,
       sidebarElements: SidebarJSON,
     });
 
     const toggleCollapsed = () => {
+      console.log(state.selectedKeys);
       state.collapsed = !state.collapsed;
     };
     const navigate = (path?: string) => {

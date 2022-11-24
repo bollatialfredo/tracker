@@ -1,70 +1,59 @@
 [
   {
     "name" : "Map",
-    "id": 10,
     "path": "/tracker",
     "icon": "icon:globe"
   },
   {
     "name" : "List",
-    "id": 11,
     "path": "/tracker/list",
     "icon": "icon:table"
   },
   {
     "name" : "Setup",
-    "id": 1,
     "path": "/tracker",
     "icon": "icon:settings",
     "subItems": [
       {
         "name": "Users",
         "path": "/tracker/users",
-        "icon": "icon:globe",
-        "id": 2
+        "icon": "icon:globe"
       },
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/tracker",
-        "id": 3
+        "path": "/tracker"
       },
       {
         "name": "Sub 3",
         "path": "/tracker",
-        "icon": "icon:globe",
-        "id": 4
+        "icon": "icon:globe"
       }
     ]
   },
   {
     "name" : "Events",
-    "id": 6,
     "icon": "icon:notification",
     "subItems": [
       {
         "name": "Sub 1",
         "path": "/tracker",
-        "icon": "icon:globe",
-        "id": 7
+        "icon": "icon:globe"
       },
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/tracker",
-        "id": 8
+        "path": "/tracker"
       },
       {
         "name": "Sub 3",
         "icon": "icon:globe",
-        "path": "/tracker",
-        "id": 9
+        "path": "/tracker"
       }
     ]
   },
   {
     "name" : "Help",
-    "id": 5,
     "path": "/tracker/help",
     "icon": "icon:help"
   }

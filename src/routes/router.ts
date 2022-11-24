@@ -16,6 +16,10 @@ const routes = [
     path: '/tracker/users',
     component: Users
   },
+  {
+    path: '/',
+    component: Home
+  },
 ]
 
 const router = createRouter({
