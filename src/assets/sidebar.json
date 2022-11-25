@@ -11,7 +11,6 @@
   },
   {
     "name" : "Setup",
-    "path": "/tracker",
     "icon": "icon:settings",
     "subItems": [
       {
@@ -22,11 +21,11 @@
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/tracker"
+        "path": "/tracker2"
       },
       {
         "name": "Sub 3",
-        "path": "/tracker",
+        "path": "/tracker3",
         "icon": "icon:globe"
       }
     ]
@@ -37,18 +36,18 @@
     "subItems": [
       {
         "name": "Sub 1",
-        "path": "/tracker",
+        "path": "/tracker4",
         "icon": "icon:globe"
       },
       {
         "name": "Sub 2",
         "icon": "icon:globe",
-        "path": "/tracker"
+        "path": "/tracker5"
       },
       {
         "name": "Sub 3",
         "icon": "icon:globe",
-        "path": "/tracker"
+        "path": "/tracker6"
       }
     ]
   },

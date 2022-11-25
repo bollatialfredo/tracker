@@ -20,6 +20,11 @@
   <div v-else class="container">
     <Login/>
   </div>
+  <div v-if="store.getLoading" class="overlay">
+    <a-space>
+      <a-spin size="large" />
+    </a-space>
+  </div>
 </template>
 
 <script lang="ts">
@@ -66,6 +71,27 @@ export default {
   &:hover{
     color: #1890ff;
     cursor: pointer;
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .5;
+  width: 100vw;
+  height: 100vh;
+  .ant-space {
+    position: relative;
+    top: calc(50vh - 50px);
+    left: 50vw;
+  }
+  .ant-spin-lg .ant-spin-dot {
+    font-size: 50px;
+  }
+  .ant-spin-lg .ant-spin-dot i {
+    width: 25px;
+    height: 25px;
   }
 }
 </style>

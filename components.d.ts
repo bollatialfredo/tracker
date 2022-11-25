@@ -14,6 +14,8 @@ declare module '@vue/runtime-core' {
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    ASpace: typeof import('ant-design-vue/es')['Space']
+    ASpin: typeof import('ant-design-vue/es')['Spin']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATable: typeof import('ant-design-vue/es')['Table']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
