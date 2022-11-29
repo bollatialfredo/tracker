@@ -1,8 +1,8 @@
 import axios from "axios";
+import { USERS } from "./urls";
 
 
 export const fetchUsers = async (): Promise<any> => {
-  let url = 'https://tracker-api-opn6.onrender.com/users';
-  const response = await axios.get(url);
+  const response = await axios.get(USERS);
   return response;
 };

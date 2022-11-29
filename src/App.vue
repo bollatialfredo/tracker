@@ -1,5 +1,5 @@
 <template>
-  <a-layout class="h-full" v-if="store.isAuthenticated">
+  <a-layout class="h-full" v-if="authStore.isAuthenticated">
     <a-layout-header>
         <img src="./assets/logo.png" class="logo inline-block" alt="" />
         <div class="inline-block relative collapse-button" @click="handleCollapse" v-wave-animation>
@@ -17,9 +17,11 @@
       footer
     </a-layout-footer> -->
   </a-layout>
-  <div v-else class="container">
-    <Login/>
-  </div>
+  <a-layout v-else>
+    <a-layout-content>
+      <Login/>
+    </a-layout-content>
+  </a-layout>
   <div v-if="store.getLoading" class="overlay">
     <a-space>
       <a-spin size="large" />
@@ -29,16 +31,20 @@
 
 <script lang="ts">
 import { useStore } from './stores/main';
+import { useAuthStore } from './stores/authStore';
 import { Icon } from '@iconify/vue';
+import  Login  from './pages/Login.vue';
 import { computed, ref } from 'vue';
 type ChildPublicInstance = { toggleCollapsed(): void, state: {collapsed: boolean} }
 
 export default {
   components:{
-    Icon
+    Icon,
+    Login
   },
   setup() {
     const store = useStore();
+    const authStore = useAuthStore();
     const sidebar = ref();
     const handleCollapse = () => {
       (sidebar.value as ChildPublicInstance)?.toggleCollapsed();
@@ -46,6 +52,7 @@ export default {
     const isCollapsed = computed(() => (sidebar.value as ChildPublicInstance)?.state.collapsed)
     return {
       store,
+      authStore,
       sidebar,
       isCollapsed,
       handleCollapse

@@ -25,10 +25,10 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import { useStore } from '../stores/main';
+import { useAuthStore } from '../stores/authStore';
 export default defineComponent({
   setup() {
-    const store = useStore();
+    const authStore = useAuthStore();
     const formState = reactive({
       username: '',
       password: '',
@@ -36,10 +36,11 @@ export default defineComponent({
     });
     const onFinish = (values: any) => {
       console.log('Success:', values);
-      store.login();
+      authStore.login({username: formState.username, password: formState.password});
     };
     const onFinishFailed = (errorInfo: any) => {
       console.log('Failed:', errorInfo);
+      authStore.logout();
     };
     return {
       formState,
