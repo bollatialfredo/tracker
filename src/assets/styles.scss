@@ -1,6 +1,15 @@
 html, body {
   height: 100%;
 }
+
+.button, [type='button'], [type='reset'], [type='submit'] {
+  color: #fff !important;
+  border-color: #1890ff !important;
+  background: #1890ff !important;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%) !important;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 5%) !important;
+}
+
 .card {
   display: flex;
   justify-content: center;
@@ -11,6 +20,10 @@ html, body {
 .sidebar-icon {
   margin-left: -15px;
   margin-right: 15px;
+}
+
+.p-absolute {
+  position: absolute !important;
 }
 
 .ant-layout-header, .ant-layout-sider-children, .ant-layout-footer, .ant-menu{
@@ -26,4 +39,11 @@ html, body {
 
 .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   display: none;
+}
+
+.logout-menu {
+  width: 100%;
+  .ant-menu-inline-collapsed{
+    max-width: 80px;    
+  }
 }

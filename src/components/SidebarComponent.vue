@@ -13,7 +13,7 @@
           {{subItem.name}}
         </a-menu-item>
         </a-sub-menu>
-        <a-menu-item v-else :key="item.path" @click="navigate(item.path)">
+        <a-menu-item v-else :key="item.name" @click="navigate(item.path)">
           <span class="select-none">
             <div v-wave-animation></div>
             <Icon class="inline-block sidebar-icon" :icon="item.icon" height="20" width="50"/>{{ item.name }}
@@ -21,13 +21,27 @@
         </a-menu-item>
       </template>
     </a-menu>
+    <div class="logout-menu p-absolute bottom-0">
+      <a-menu mode="inline">
+        <a-menu-item @click="handleLogoutClick">
+          <span class="select-none">
+            <div v-wave-animation></div>
+            <Icon class="inline-block sidebar-icon" icon="icon:logout" height="20" width="50"/>Logout
+          </span>
+        </a-menu-item>
+      </a-menu>
+    </div>
+    <confirmation-modal msg="Are you sure you want to logout?" title="Logout" @handleOk="authStore.logout" ref="logoutModal"/>
   </a-layout-sider>
 </template>
+
 <script lang="ts">
-import { reactive, SetupContext, toRefs } from 'vue';
+import { reactive, ref, SetupContext, toRefs } from 'vue';
 import { Icon } from '@iconify/vue';
 import SidebarJSON from '../assets/sidebar.json';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/authStore';
+type LogoutModal = { toggleModal(): void };
 
 export interface SidebarItem {
   name: string,
@@ -41,34 +55,34 @@ export default {
   components:{
     Icon
   },
-  // mounted() {
-  //   console.log(this.$route.fullPath);
-  // },
   setup(props, context: SetupContext) {
-    const router = useRouter()
+    const router = useRouter();
+    const authStore = useAuthStore();
     const state = reactive({
       selectedKeys: [],
       openKeys: [],
+      logoutModal: {},
       collapsed: false,
       sidebarElements: SidebarJSON,
     });
-
     const toggleCollapsed = () => {
-      console.log(state.selectedKeys);
       state.collapsed = !state.collapsed;
     };
     const navigate = (path?: string) => {
-      console.log(path);
-      
       if (!path) return
       setTimeout(() => {
         router.push({ path: path })      
       }, 300);
     }
+    const handleLogoutClick = () => {
+      (state.logoutModal as LogoutModal)?.toggleModal();
+    }
     context.expose({ toggleCollapsed, state });
     return {
       ...toRefs(state),
       toggleCollapsed,
+      handleLogoutClick,
+      authStore,
       navigate
     };
   }
