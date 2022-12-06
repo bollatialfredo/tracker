@@ -24,11 +24,13 @@
     </a-form>
   </div>
 </template>
+
 <script lang="ts">
 import { reactive } from 'vue';
 import { useAuthStore } from '../stores/authStore';
 import particlesJSON from '../assets/particles.json';
 import interactiveParticlesJSON from '../assets/interactiveParticles.json';
+import '../utils/particles';
 declare global {
   interface Window {
     particlesJS?: any;
@@ -36,7 +38,6 @@ declare global {
 }
 export default {
   mounted() {
-    if (!window.particlesJS) return
     this.startParticles();
   },
   data() {
@@ -46,9 +47,11 @@ export default {
   },
   methods: {
     startParticles() {
+      if (!window.particlesJS) return
       window.particlesJS('particles-js', particlesJSON);
     },
     startInteractiveParticles() {
+      if (!window.particlesJS) return
       window.particlesJS('particles-js', interactiveParticlesJSON);
     },
     handleCanvasClick() {
