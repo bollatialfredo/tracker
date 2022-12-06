@@ -25,7 +25,6 @@ declare module '@vue/runtime-core' {
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATable: typeof import('ant-design-vue/es')['Table']
     ConfirmationModal: typeof import('./src/components/shared/ConfirmationModal.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     MapComponent: typeof import('./src/components/MapComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

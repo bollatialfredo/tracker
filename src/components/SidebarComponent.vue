@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, ref, SetupContext, toRefs } from 'vue';
+import { reactive, SetupContext, toRefs } from 'vue';
 import { Icon } from '@iconify/vue';
 import SidebarJSON from '../assets/sidebar.json';
 import { useRouter } from 'vue-router';

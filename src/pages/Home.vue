@@ -4,7 +4,6 @@
   </div>
 </template>
 <script lang="ts">
-import { ref } from 'vue';
 import GeoJSON from '../assets/geojson.json';
 export default {
   data() {

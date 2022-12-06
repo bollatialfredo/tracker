@@ -1,6 +1,7 @@
 <template>
+  <div @click="handleCanvasClick" id="particles-js"></div>
   <div class="card">
-    <a-form :model="formState" name="basic" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }" autocomplete="off"
+    <a-form class="formClass select-none" :model="formState" name="basic" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }" autocomplete="off"
       @finish="onFinish" @finishFailed="onFinishFailed">
       <a-form-item class="title">Asset Tracker Login</a-form-item>
       <a-form-item label="Username" name="username"
@@ -24,9 +25,39 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { reactive } from 'vue';
 import { useAuthStore } from '../stores/authStore';
-export default defineComponent({
+import particlesJSON from '../assets/particles.json';
+import interactiveParticlesJSON from '../assets/interactiveParticles.json';
+declare global {
+  interface Window {
+    particlesJS?: any;
+  }
+}
+export default {
+  mounted() {
+    if (!window.particlesJS) return
+    this.startParticles();
+  },
+  data() {
+    return {
+      clickCounts: 0
+    }
+  },
+  methods: {
+    startParticles() {
+      window.particlesJS('particles-js', particlesJSON);
+    },
+    startInteractiveParticles() {
+      window.particlesJS('particles-js', interactiveParticlesJSON);
+    },
+    handleCanvasClick() {
+      this.clickCounts++
+      if (this.clickCounts === 10) {
+        this.startInteractiveParticles();
+      }
+    }
+  },
   setup() {
     const authStore = useAuthStore();
     const formState = reactive({
@@ -42,18 +73,38 @@ export default defineComponent({
       console.log('Failed:', errorInfo);
       authStore.logout();
     };
+    
+
     return {
       formState,
       onFinish,
       onFinishFailed,
     };
   },
-});
+};
+
 </script>
 
-<style>
+<style scoped>
   .title{
     font-size: 1.2rem;
     font-weight: bold;
   }
+  .formClass {
+    background-color: #ffffffd1;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 14px;
+  }
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
 </style>
