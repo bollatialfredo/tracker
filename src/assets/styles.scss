@@ -36,6 +36,11 @@ html, body {
 .ant-layout-content {
   background: #FFF;
 }
+.no-modal-footer {
+  .ant-modal-footer {
+    display: none;
+  }
+}
 
 .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   display: none;
