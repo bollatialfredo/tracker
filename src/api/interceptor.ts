@@ -7,8 +7,6 @@ export const apiInterceptor = function (): any {
     function (config: AxiosRequestConfig) {
       const token = 'a demo token';
       if (token && config.headers && !config.headers.Authorization) {
-        console.log('set token');
-        
         config.headers.Authorization = `Bearer ${token}`;
         store.startLoading();
       } else {

@@ -14,13 +14,17 @@ export default {
     title: String,
     msg: String
   },
+  emits:(['emitItem']),
   setup(props, context: SetupContext) {
     const visible = ref<boolean>(false);
-    const toggleModal = () => {
+    const item = ref<object>({});
+    const toggleModal = (itemProp?: any) => {
       visible.value = !visible.value;
+      if(itemProp) item.value = itemProp;
     };
-    const handleOk = (e: MouseEvent) => {
+    const handleOk = () => {
       visible.value = false;
+      if(item) context.emit('emitItem', {...item.value});
     };
     context.expose({ toggleModal });
     return {

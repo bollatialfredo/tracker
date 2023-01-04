@@ -38,12 +38,13 @@
 <script lang="ts">
 import { reactive, ref, SetupContext } from 'vue';
 import type { FormInstance } from 'ant-design-vue';
+import { User } from '../../models/userModel';
 
 export default {
   props: {
-    title: String,
-    msg: String
+    title: String
   },
+  emits:(['submitUser']),
   setup(props, context: SetupContext) {
     
     const layout = {
@@ -61,27 +62,40 @@ export default {
         range: '${label} must be between ${min} and ${max}',
       },
     };
-    
     const formRef = ref<FormInstance>();
     const visible = ref<boolean>(false);
     const formState = reactive({
       user: {
         name: '',
         lastName: '',
-        age: undefined,
+        age: 0,
         email: '',
         phone: '',
       },
     });
 
     const onFinish = (values: any) => {
-      console.log('Success:', values);
       toggleModal();
+      context.emit('submitUser', values.user);
     };
     
-    const toggleModal = () => {
+    const toggleModal = (user?: User) => {
       visible.value = !visible.value;
-      formRef?.value?.resetFields();
+      if (user && user.first_name && user.last_name && user.email) {
+        formState.user.name = user.first_name;
+        formState.user.lastName = user.last_name;
+        formState.user.email = user.email;
+        if (user.age) formState.user.age = Number(user.age);
+        if (user.phone) formState.user.phone = user.phone;
+      } else {
+        formState.user = {
+          name: '',
+          lastName: '',
+          age: 0,
+          email: '',
+          phone: '',
+        }
+      }
     };
 
     context.expose({ toggleModal });
